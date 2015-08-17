@@ -1,0 +1,38 @@
+﻿<div class="container">
+    <div class="row" ng-controller="listChiCtrl" style="min-height:300px">
+        <a class="btn btn-primary" ui-sref="createChi">Tạo mới</a>
+        <table class="table table-striped table-hover col-md-8">
+            <caption style="text-align:center">
+                DANH SÁCH PHIẾU CHI
+            </caption>
+            <thead>
+                <tr style="padding:1px 1px 1px 1px">
+                    <td>Mã phiếu chi</td>
+                    <td>Thời gian chi</td>
+                    <td>Giá trị</td>
+                    <td>Người tạo phiếu</td>
+                    <td>Ghi chú</td>
+                    <td>Chức năng</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="dsPhieuChi in dsPhieuChis" style="padding:1px 1px 1px 1px">
+                    <td>{{dsPhieuChi.MaPhieuChi}}</td>
+                    <td>{{dsPhieuChi.ThoiGianChi|date:"dd/MM/yyyy"}}</td>
+                    <td>{{dsPhieuChi.GiaTri}}</td>
+                    <td>{{dsPhieuChi.NguoiTaoPhieuId}}</td>
+                    <td>{{dsPhieuChi.GhiChu}}</td>
+                    <td>
+                        <a class="btn btn-success" ui-sref="editChi({id:dsPhieuChi.MaPhieuChi})">Sửa</a>
+                        <div class="btn btn-warning" ng-click="xoaPhieuChi(dsPhieuChi)">Xóa</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Trang {{currentPage}} trên tổng số {{pageCount}}</p>
+        <ul class="pagination pull-right" ng-hide="pageCount==0">
+            <li ng-click="selectPage(currentPage-1)"><a href="javascript:void(0)" class="fa fa-fast-backward"></a></li>
+            <li ng-click="selectPage(currentPage+1)"><a href="javascript:void(0)" class="fa fa-fast-forward"></a></li>
+        </ul>
+    </div>
+</div>

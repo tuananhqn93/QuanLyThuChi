@@ -1,0 +1,93 @@
+﻿<div class="row" ng-controller="taoPhieuThuCtrl">
+    <div class="col-md-8">
+        <div class="portlet box green ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-gift"></i> Tạo phiếu thu
+                </div>
+                <div class="tools">
+                    <a href="" class="collapse">
+                    </a>
+                    <a href="#portlet-config" data-toggle="modal" class="config">
+                    </a>
+                    <a href="" class="reload">
+                    </a>
+                    <a href="" class="remove">
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <form class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="MaPhieu">Mã phiếu</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" placeholder="Nhập mã phiếu" ng-model="model.MaPhieuThu">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="ThoiGian">Thời gian</label>
+                            <div class="col-md-9">
+                                <p class="input-group">
+                                    <input type="date" ng-model="model.ThoiGianThu" class="form-control" datepicker-popup ng-model="dt" is-open="status.opened" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="LoaiThu">Loại thu</label>
+                            <div class="col-md-9">
+                                <select class="form-control" ng-model="model.LoaiPhieu_id">
+                                    <option selected="selected" value="1">Loại 1</option>
+                                    <option value="2">Loại 2</option>
+                                    <option value="3">Loại 3</option>
+                                    <option value="4">Loại 4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="DoiTuongThu">Đối tượng thu</label>
+                            <div class="col-md-9">
+                                <div class="radio-list">
+                                    <label class="radio-inline">
+                                        <input type="radio" ng-model="model.IdLoaiNguoiDung" name="optionsRadios" id="optionsRadios1" value="1" checked> Nhân viên
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" ng-model="model.IdLoaiNguoiDung" name="optionsRadios" id="optionsRadios2" value="2"> Khách hàng
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" ng-model="model.IdLoaiNguoiDung" name="optionsRadios" id="optionsRadios3" value="3"> Quản lý
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" ng-model="model.IdLoaiNguoiDung" name="optionsRadios" id="optionsRadios4" value="4"> Khác
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="GiaTri">Giá trị</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" ng-model="model.GiaTri">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="GhiChu">Ghi chú</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" placeholder="Nhập ghi chú" ng-model="model.GhiChu">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions fluid">
+                        <div class="col-md-offset-3 col-md-9">
+                            <button type="submit" class="btn green" ng-click="create()">Lưu lại</button>
+                            <button type="button" class="btn default" ng-click="cancel()">Hủy</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

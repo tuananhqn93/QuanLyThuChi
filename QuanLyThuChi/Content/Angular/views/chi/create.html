@@ -1,0 +1,139 @@
+﻿<div class="row" ng-controller="taoPhieuChiCtrl">
+    <div class="col-md-8">
+        <div class="portlet box green ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-gift"></i> Tạo phiếu chi
+                </div>
+                <div class="tools">
+                    <a href="" class="collapse">
+                    </a>
+                    <a href="#portlet-config" data-toggle="modal" class="config">
+                    </a>
+                    <a href="" class="reload">
+                    </a>
+                    <a href="" class="remove">
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <form class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="MaPhieu">Mã phiếu</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" placeholder="Nhập mã phiếu" ng-model="model.MaPhieuChi">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="ThoiGian">Thời gian</label>
+                            <div class="col-md-9">
+                                <p class="input-group">
+                                    <input type="date" ng-model="model.ThoiGianChi" class="form-control" datepicker-popup ng-model="dt" is-open="status.opened" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="LoaiChi">Loại chi</label>
+                            <div class="col-md-9">
+                                <select class="form-control" ng-model="model.LoaiPhieu_id">
+                                    <option selected="selected" value="1">Loại 1</option>
+                                    <option value="2">Loại 2</option>
+                                    <option value="3">Loại 3</option>
+                                    <option value="4">Loại 4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="DoiTuongChi">Đối tượng chi</label>
+                            <div class="col-md-9">
+                                <div class="radio-list">
+                                    <label class="radio-inline">
+                                        <input type="radio" ng-model="model.LoaiNguoiTaoPhieuId" name="optionsRadios" id="optionsRadios1" value="1" ng-click="change()"> Nhân viên
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" ng-model="model.LoaiNguoiTaoPhieuId" name="optionsRadios" id="optionsRadios2" value="2" ng-click="change()"> Khách hàng
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" ng-model="model.LoaiNguoiTaoPhieuId" name="optionsRadios" id="optionsRadios3" value="3" ng-click="change()"> Quản lý
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" ng-model="model.LoaiNguoiTaoPhieuId" name="optionsRadios" id="optionsRadios4" value="4" ng-click="change()"> Khác
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-if="callForm">
+                            <label class="col-md-3 control-label">Thông tin thêm</label>
+                            <div class="col-md-9">
+                                <panel class="panel panel-collapse">
+                                    <div class="panel-body">
+                                        <form class="form-control">
+                                            <fieldset>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="Ma">Mã</label>
+                                                    <div class="col-md-9">
+                                                        <input class="form-control" placeholder="Mã" name="ma" class="form-control" type="text" ng-model="model.NTP" ng-blur="changeId()">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="Ten">Tên</label>
+                                                    <div class="col-md-9">
+                                                        <input class="form-control" placeholder="Tên" name="ten" type="text" disabled="disabled" ng-model="nguoitp.Ten">
+                                                     </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="SoDienThoai">Số điện thoại</label>
+                                                    <div class="col-md-9">
+                                                        <input class="form-control" placeholder="Số điện thoại" name="sdt" type="text" disabled="disabled" ng-model="nguoitp.SoDienThoai">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="Email">Email</label>
+                                                    <div class="col-md-9">
+                                                        <input class="form-control" placeholder="E-mail" name="email" type="email" disabled="disabled" ng-model="nguoitp.Email">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="DiaChi">Địa chỉ</label>
+                                                    <div class="col-md-9">
+                                                        <input class="form-control" placeholder="Địa chỉ" name="diachi" type="text" disabled="disabled" ng-model="nguoitp.DiaChi">
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+
+                                </panel>
+                            </div>
+                        </div>
+                        
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="GiaTri">Giá trị</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" placeholder="Nhập giá trị chi" ng-model="model.GiaTri">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="GhiChu">Ghi chú</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" placeholder="Nhập ghi chú" ng-model="model.GhiChu">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions fluid">
+                        <div class="col-md-offset-3 col-md-9">
+                            <button type="submit" class="btn green" ng-click="create()">Lưu lại</button>
+                            <button type="button" class="btn default" ng-click="cancel()">Hủy</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
